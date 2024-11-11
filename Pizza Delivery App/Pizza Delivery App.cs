@@ -30,7 +30,7 @@ namespace Pizza_Delivery_App
             favs.Add(new Order(test));
             favs.Add(new Order(test));
 
-
+            //
             for (int i = 0; i < favs.Count; i++)
             {
                 String[] items = new string[6];
@@ -51,9 +51,9 @@ namespace Pizza_Delivery_App
                 FavList.Items.Add(favOrder);
 
             }
+            
 
-
-            Back.Hide();
+            //Back.Hide();
 
             Timer tmr = new Timer();
             tmr.Interval = 50;   // milliseconds
@@ -63,6 +63,7 @@ namespace Pizza_Delivery_App
 
         private void Tmr_Tick(object sender, EventArgs e)  //run this logic each timer tick
         {
+            
             if (menuPos != newPos)
             {
                 switch (menuPos)
@@ -107,7 +108,7 @@ namespace Pizza_Delivery_App
             }
 
             menuPos = newPos;
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

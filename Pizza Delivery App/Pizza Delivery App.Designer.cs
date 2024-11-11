@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.logIn = new System.Windows.Forms.Button();
             this.signUp = new System.Windows.Forms.Button();
             this.Info = new System.Windows.Forms.Button();
@@ -50,20 +51,25 @@
             this.FavoritesButton = new System.Windows.Forms.PictureBox();
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.FavoritesPanel = new System.Windows.Forms.Panel();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ordersTestDataSet = new Pizza_Delivery_App.OrdersTestDataSet();
-            this.FavLabel2 = new System.Windows.Forms.Label();
-            this.ordersTableAdapter = new Pizza_Delivery_App.OrdersTestDataSetTableAdapters.OrdersTableAdapter();
-            this.ordersTestDataSet1 = new Pizza_Delivery_App.OrdersTestDataSet();
-            this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ReorderButton = new System.Windows.Forms.Button();
             this.FavList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ReorderButton = new System.Windows.Forms.Button();
+            this.FavLabel2 = new System.Windows.Forms.Label();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordersTestDataSet = new Pizza_Delivery_App.OrdersTestDataSet();
+            this.ordersTableAdapter = new Pizza_Delivery_App.OrdersTestDataSetTableAdapters.OrdersTableAdapter();
+            this.ordersTestDataSet1 = new Pizza_Delivery_App.OrdersTestDataSet();
+            this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.SignUpPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.startPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.InfoPanel.SuspendLayout();
@@ -76,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersTestDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersTestDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
+            this.SignUpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // logIn
@@ -154,11 +161,11 @@
             // 
             this.AboutUs.AutoSize = true;
             this.AboutUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.AboutUs.Location = new System.Drawing.Point(312, 120);
+            this.AboutUs.Location = new System.Drawing.Point(332, 120);
             this.AboutUs.Name = "AboutUs";
-            this.AboutUs.Size = new System.Drawing.Size(286, 87);
+            this.AboutUs.Size = new System.Drawing.Size(290, 406);
             this.AboutUs.TabIndex = 0;
-            this.AboutUs.Text = "About Us!\r\n\r\nMom\'s and Pop\'s Pizzeria";
+            this.AboutUs.Text = resources.GetString("AboutUs.Text");
             // 
             // Back
             // 
@@ -224,7 +231,7 @@
             this.OrderMainPanel.Controls.Add(this.FavLabel);
             this.OrderMainPanel.Controls.Add(this.FavoritesButton);
             this.OrderMainPanel.Controls.Add(this.WelcomeLabel);
-            this.OrderMainPanel.Location = new System.Drawing.Point(34, 52);
+            this.OrderMainPanel.Location = new System.Drawing.Point(34, 41);
             this.OrderMainPanel.Name = "OrderMainPanel";
             this.OrderMainPanel.Size = new System.Drawing.Size(913, 880);
             this.OrderMainPanel.TabIndex = 10;
@@ -293,39 +300,14 @@
             this.FavoritesPanel.TabIndex = 11;
             this.FavoritesPanel.Visible = false;
             // 
-            // ordersBindingSource
+            // ReorderButton
             // 
-            this.ordersBindingSource.DataMember = "Orders";
-            this.ordersBindingSource.DataSource = this.ordersTestDataSet;
-            // 
-            // ordersTestDataSet
-            // 
-            this.ordersTestDataSet.DataSetName = "OrdersTestDataSet";
-            this.ordersTestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // FavLabel2
-            // 
-            this.FavLabel2.AutoSize = true;
-            this.FavLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.FavLabel2.Location = new System.Drawing.Point(362, 53);
-            this.FavLabel2.Name = "FavLabel2";
-            this.FavLabel2.Size = new System.Drawing.Size(255, 29);
-            this.FavLabel2.TabIndex = 0;
-            this.FavLabel2.Text = "Select From Favorites!";
-            // 
-            // ordersTableAdapter
-            // 
-            this.ordersTableAdapter.ClearBeforeFill = true;
-            // 
-            // ordersTestDataSet1
-            // 
-            this.ordersTestDataSet1.DataSetName = "OrdersTestDataSet";
-            this.ordersTestDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ordersBindingSource1
-            // 
-            this.ordersBindingSource1.DataMember = "Orders";
-            this.ordersBindingSource1.DataSource = this.ordersTestDataSet1;
+            this.ReorderButton.Location = new System.Drawing.Point(412, 462);
+            this.ReorderButton.Name = "ReorderButton";
+            this.ReorderButton.Size = new System.Drawing.Size(75, 23);
+            this.ReorderButton.TabIndex = 3;
+            this.ReorderButton.Text = "Reorder";
+            this.ReorderButton.UseVisualStyleBackColor = true;
             // 
             // FavList
             // 
@@ -345,6 +327,11 @@
             this.FavList.TabIndex = 2;
             this.FavList.UseCompatibleStateImageBehavior = false;
             this.FavList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "OrderID";
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
@@ -371,31 +358,97 @@
             this.columnHeader6.Text = "Item 5";
             this.columnHeader6.Width = 200;
             // 
-            // columnHeader1
+            // FavLabel2
             // 
-            this.columnHeader1.Text = "OrderID";
-            this.columnHeader1.Width = 100;
+            this.FavLabel2.AutoSize = true;
+            this.FavLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.FavLabel2.Location = new System.Drawing.Point(362, 53);
+            this.FavLabel2.Name = "FavLabel2";
+            this.FavLabel2.Size = new System.Drawing.Size(255, 29);
+            this.FavLabel2.TabIndex = 0;
+            this.FavLabel2.Text = "Select From Favorites!";
             // 
-            // ReorderButton
+            // ordersBindingSource
             // 
-            this.ReorderButton.Location = new System.Drawing.Point(412, 462);
-            this.ReorderButton.Name = "ReorderButton";
-            this.ReorderButton.Size = new System.Drawing.Size(75, 23);
-            this.ReorderButton.TabIndex = 3;
-            this.ReorderButton.Text = "Reorder";
-            this.ReorderButton.UseVisualStyleBackColor = true;
+            this.ordersBindingSource.DataMember = "Orders";
+            this.ordersBindingSource.DataSource = this.ordersTestDataSet;
+            // 
+            // ordersTestDataSet
+            // 
+            this.ordersTestDataSet.DataSetName = "OrdersTestDataSet";
+            this.ordersTestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ordersTableAdapter
+            // 
+            this.ordersTableAdapter.ClearBeforeFill = true;
+            // 
+            // ordersTestDataSet1
+            // 
+            this.ordersTestDataSet1.DataSetName = "OrdersTestDataSet";
+            this.ordersTestDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ordersBindingSource1
+            // 
+            this.ordersBindingSource1.DataMember = "Orders";
+            this.ordersBindingSource1.DataSource = this.ordersTestDataSet1;
+            // 
+            // SignUpPanel
+            // 
+            this.SignUpPanel.Controls.Add(this.button1);
+            this.SignUpPanel.Controls.Add(this.textBox2);
+            this.SignUpPanel.Controls.Add(this.textBox1);
+            this.SignUpPanel.Controls.Add(this.label2);
+            this.SignUpPanel.Location = new System.Drawing.Point(14, 49);
+            this.SignUpPanel.Name = "SignUpPanel";
+            this.SignUpPanel.Size = new System.Drawing.Size(917, 880);
+            this.SignUpPanel.TabIndex = 12;
+            this.SignUpPanel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(452, 268);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Sign Up";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(350, 204);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(285, 26);
+            this.textBox2.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(350, 160);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(285, 26);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(447, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 29);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Sign Up!";
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(978, 944);
-            this.Controls.Add(this.FavoritesPanel);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.OrderMainPanel);
             this.Controls.Add(this.LogInPanel);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.startPanel);
+            this.Controls.Add(this.SignUpPanel);
+            this.Controls.Add(this.FavoritesPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Pizza Delivery App";
@@ -417,6 +470,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersTestDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersTestDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
+            this.SignUpPanel.ResumeLayout(false);
+            this.SignUpPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -458,6 +513,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button ReorderButton;
+        private System.Windows.Forms.Panel SignUpPanel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
