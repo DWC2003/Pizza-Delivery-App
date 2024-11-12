@@ -30,7 +30,7 @@ namespace Pizza_Delivery_App
             favs.Add(new Order(test));
             favs.Add(new Order(test));
 
-            //
+            // Populates Favorites List
             for (int i = 0; i < favs.Count; i++)
             {
                 String[] items = new string[6];
@@ -53,7 +53,7 @@ namespace Pizza_Delivery_App
             }
             
 
-            //Back.Hide();
+            Back.Hide();
 
             Timer tmr = new Timer();
             tmr.Interval = 50;   // milliseconds
@@ -84,6 +84,10 @@ namespace Pizza_Delivery_App
                     case 4:
                         FavoritesPanel.Hide();
                         break;
+                    case 5:
+                        OrderCreationPanel.Hide();
+                        break;
+
 
                 }
                 switch (newPos)
@@ -103,6 +107,9 @@ namespace Pizza_Delivery_App
                         break;
                     case 4:
                         FavoritesPanel.Show();
+                        break;
+                    case 5:
+                        OrderCreationPanel.Show();
                         break;
                 }
             }
@@ -135,6 +142,9 @@ namespace Pizza_Delivery_App
                     newPos = 2;
                     break;
                 case 4:
+                    newPos = 3;
+                    break;
+                case 5:
                     newPos = 3;
                     break;
             }
@@ -192,6 +202,11 @@ namespace Pizza_Delivery_App
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void NewOrderButton_Click(object sender, EventArgs e)
+        {
+            newPos = 5;
         }
     }
 }
