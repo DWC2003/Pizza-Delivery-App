@@ -35,6 +35,7 @@
             this.Info = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.startPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.AboutUs = new System.Windows.Forms.Label();
             this.Back = new System.Windows.Forms.Button();
@@ -45,7 +46,9 @@
             this.LogInLabel = new System.Windows.Forms.Label();
             this.OrderMainPanel = new System.Windows.Forms.Panel();
             this.NewOrderLabel = new System.Windows.Forms.Label();
+            this.NewOrderButton = new System.Windows.Forms.PictureBox();
             this.FavLabel = new System.Windows.Forms.Label();
+            this.FavoritesButton = new System.Windows.Forms.PictureBox();
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.FavoritesPanel = new System.Windows.Forms.Panel();
             this.ReorderButton = new System.Windows.Forms.Button();
@@ -68,19 +71,33 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.OrderCreationPanel = new System.Windows.Forms.Panel();
-            this.CreateYourOrderLabel = new System.Windows.Forms.Label();
+            this.ImDoneButton = new System.Windows.Forms.Button();
+            this.ViewOrderButton1 = new System.Windows.Forms.Button();
             this.NewBevButton = new System.Windows.Forms.PictureBox();
             this.NewSideButton = new System.Windows.Forms.PictureBox();
             this.NewPizzaButton = new System.Windows.Forms.PictureBox();
-            this.NewOrderButton = new System.Windows.Forms.PictureBox();
-            this.FavoritesButton = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ViewOrderButton1 = new System.Windows.Forms.Button();
-            this.ImDoneButton = new System.Windows.Forms.Button();
+            this.CreateYourOrderLabel = new System.Windows.Forms.Label();
+            this.SidesPanel = new System.Windows.Forms.Panel();
+            this.SidesListView = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AddExtraButton = new System.Windows.Forms.Button();
+            this.DessertsButtonSwitch = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SwitchSidesButton = new System.Windows.Forms.Button();
+            this.ViewOrderPanel = new System.Windows.Forms.Panel();
+            this.ViewOrderLabel = new System.Windows.Forms.Label();
+            this.ViewOrderList = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ViewOrderTotalLabel = new System.Windows.Forms.Label();
             this.startPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.InfoPanel.SuspendLayout();
             this.LogInPanel.SuspendLayout();
             this.OrderMainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NewOrderButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FavoritesButton)).BeginInit();
             this.FavoritesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersTestDataSet)).BeginInit();
@@ -91,9 +108,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NewBevButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewSideButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewPizzaButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NewOrderButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FavoritesButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SidesPanel.SuspendLayout();
+            this.ViewOrderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // logIn
@@ -147,6 +163,16 @@
             this.startPanel.Name = "startPanel";
             this.startPanel.Size = new System.Drawing.Size(740, 446);
             this.startPanel.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Pizza_Delivery_App.Properties.Resources.pizzaicon;
+            this.pictureBox1.Location = new System.Drawing.Point(266, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(227, 231);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // InfoPanel
             // 
@@ -248,6 +274,18 @@
             this.NewOrderLabel.TabIndex = 4;
             this.NewOrderLabel.Text = "Create New Order";
             // 
+            // NewOrderButton
+            // 
+            this.NewOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NewOrderButton.Image = global::Pizza_Delivery_App.Properties.Resources.pizza;
+            this.NewOrderButton.Location = new System.Drawing.Point(524, 183);
+            this.NewOrderButton.Name = "NewOrderButton";
+            this.NewOrderButton.Size = new System.Drawing.Size(176, 145);
+            this.NewOrderButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.NewOrderButton.TabIndex = 3;
+            this.NewOrderButton.TabStop = false;
+            this.NewOrderButton.Click += new System.EventHandler(this.NewOrderButton_Click);
+            // 
             // FavLabel
             // 
             this.FavLabel.AutoSize = true;
@@ -258,6 +296,17 @@
             this.FavLabel.TabIndex = 2;
             this.FavLabel.Text = "Select From Favorites";
             this.FavLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // FavoritesButton
+            // 
+            this.FavoritesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FavoritesButton.Image = global::Pizza_Delivery_App.Properties.Resources.star;
+            this.FavoritesButton.Location = new System.Drawing.Point(193, 183);
+            this.FavoritesButton.Name = "FavoritesButton";
+            this.FavoritesButton.Size = new System.Drawing.Size(169, 145);
+            this.FavoritesButton.TabIndex = 1;
+            this.FavoritesButton.TabStop = false;
+            this.FavoritesButton.Click += new System.EventHandler(this.FavoritesButton_Click);
             // 
             // WelcomeLabel
             // 
@@ -431,15 +480,24 @@
             this.OrderCreationPanel.TabIndex = 13;
             this.OrderCreationPanel.Visible = false;
             // 
-            // CreateYourOrderLabel
+            // ImDoneButton
             // 
-            this.CreateYourOrderLabel.AutoSize = true;
-            this.CreateYourOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CreateYourOrderLabel.Location = new System.Drawing.Point(384, 44);
-            this.CreateYourOrderLabel.Name = "CreateYourOrderLabel";
-            this.CreateYourOrderLabel.Size = new System.Drawing.Size(143, 20);
-            this.CreateYourOrderLabel.TabIndex = 0;
-            this.CreateYourOrderLabel.Text = "Create Your Order!";
+            this.ImDoneButton.Location = new System.Drawing.Point(516, 417);
+            this.ImDoneButton.Name = "ImDoneButton";
+            this.ImDoneButton.Size = new System.Drawing.Size(75, 23);
+            this.ImDoneButton.TabIndex = 5;
+            this.ImDoneButton.Text = "I\'m Done!";
+            this.ImDoneButton.UseVisualStyleBackColor = true;
+            // 
+            // ViewOrderButton1
+            // 
+            this.ViewOrderButton1.Location = new System.Drawing.Point(317, 417);
+            this.ViewOrderButton1.Name = "ViewOrderButton1";
+            this.ViewOrderButton1.Size = new System.Drawing.Size(75, 23);
+            this.ViewOrderButton1.TabIndex = 4;
+            this.ViewOrderButton1.Text = "View Order";
+            this.ViewOrderButton1.UseVisualStyleBackColor = true;
+            this.ViewOrderButton1.Click += new System.EventHandler(this.ViewOrderButton1_Click);
             // 
             // NewBevButton
             // 
@@ -451,6 +509,7 @@
             this.NewBevButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NewBevButton.TabIndex = 3;
             this.NewBevButton.TabStop = false;
+            this.NewBevButton.Click += new System.EventHandler(this.NewBevButton_Click);
             // 
             // NewSideButton
             // 
@@ -462,6 +521,7 @@
             this.NewSideButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NewSideButton.TabIndex = 2;
             this.NewSideButton.TabStop = false;
+            this.NewSideButton.Click += new System.EventHandler(this.NewSideButton_Click);
             // 
             // NewPizzaButton
             // 
@@ -473,57 +533,146 @@
             this.NewPizzaButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NewPizzaButton.TabIndex = 1;
             this.NewPizzaButton.TabStop = false;
+            this.NewPizzaButton.Click += new System.EventHandler(this.NewPizzaButton_Click);
             // 
-            // NewOrderButton
+            // CreateYourOrderLabel
             // 
-            this.NewOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NewOrderButton.Image = global::Pizza_Delivery_App.Properties.Resources.pizza;
-            this.NewOrderButton.Location = new System.Drawing.Point(524, 183);
-            this.NewOrderButton.Name = "NewOrderButton";
-            this.NewOrderButton.Size = new System.Drawing.Size(176, 145);
-            this.NewOrderButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.NewOrderButton.TabIndex = 3;
-            this.NewOrderButton.TabStop = false;
-            this.NewOrderButton.Click += new System.EventHandler(this.NewOrderButton_Click);
+            this.CreateYourOrderLabel.AutoSize = true;
+            this.CreateYourOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CreateYourOrderLabel.Location = new System.Drawing.Point(384, 44);
+            this.CreateYourOrderLabel.Name = "CreateYourOrderLabel";
+            this.CreateYourOrderLabel.Size = new System.Drawing.Size(143, 20);
+            this.CreateYourOrderLabel.TabIndex = 0;
+            this.CreateYourOrderLabel.Text = "Create Your Order!";
             // 
-            // FavoritesButton
+            // SidesPanel
             // 
-            this.FavoritesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FavoritesButton.Image = global::Pizza_Delivery_App.Properties.Resources.star;
-            this.FavoritesButton.Location = new System.Drawing.Point(193, 183);
-            this.FavoritesButton.Name = "FavoritesButton";
-            this.FavoritesButton.Size = new System.Drawing.Size(169, 145);
-            this.FavoritesButton.TabIndex = 1;
-            this.FavoritesButton.TabStop = false;
-            this.FavoritesButton.Click += new System.EventHandler(this.FavoritesButton_Click);
+            this.SidesPanel.Controls.Add(this.SidesListView);
+            this.SidesPanel.Controls.Add(this.AddExtraButton);
+            this.SidesPanel.Controls.Add(this.DessertsButtonSwitch);
+            this.SidesPanel.Controls.Add(this.label3);
+            this.SidesPanel.Controls.Add(this.SwitchSidesButton);
+            this.SidesPanel.Location = new System.Drawing.Point(17, 44);
+            this.SidesPanel.Name = "SidesPanel";
+            this.SidesPanel.Size = new System.Drawing.Size(939, 539);
+            this.SidesPanel.TabIndex = 14;
+            this.SidesPanel.Visible = false;
             // 
-            // pictureBox1
+            // SidesListView
             // 
-            this.pictureBox1.Image = global::Pizza_Delivery_App.Properties.Resources.pizzaicon;
-            this.pictureBox1.Location = new System.Drawing.Point(266, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 231);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.SidesListView.CheckBoxes = true;
+            this.SidesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8});
+            this.SidesListView.HideSelection = false;
+            this.SidesListView.Location = new System.Drawing.Point(369, 203);
+            this.SidesListView.Name = "SidesListView";
+            this.SidesListView.Size = new System.Drawing.Size(161, 243);
+            this.SidesListView.TabIndex = 5;
+            this.SidesListView.UseCompatibleStateImageBehavior = false;
+            this.SidesListView.View = System.Windows.Forms.View.Details;
             // 
-            // ViewOrderButton1
+            // columnHeader7
             // 
-            this.ViewOrderButton1.Location = new System.Drawing.Point(317, 417);
-            this.ViewOrderButton1.Name = "ViewOrderButton1";
-            this.ViewOrderButton1.Size = new System.Drawing.Size(75, 23);
-            this.ViewOrderButton1.TabIndex = 4;
-            this.ViewOrderButton1.Text = "View Order";
-            this.ViewOrderButton1.UseVisualStyleBackColor = true;
+            this.columnHeader7.Text = "Name";
+            this.columnHeader7.Width = 100;
             // 
-            // ImDoneButton
+            // columnHeader8
             // 
-            this.ImDoneButton.Location = new System.Drawing.Point(516, 417);
-            this.ImDoneButton.Name = "ImDoneButton";
-            this.ImDoneButton.Size = new System.Drawing.Size(75, 23);
-            this.ImDoneButton.TabIndex = 5;
-            this.ImDoneButton.Text = "I\'m Done!";
-            this.ImDoneButton.UseVisualStyleBackColor = true;
+            this.columnHeader8.Text = "Price";
+            // 
+            // AddExtraButton
+            // 
+            this.AddExtraButton.Location = new System.Drawing.Point(407, 452);
+            this.AddExtraButton.Name = "AddExtraButton";
+            this.AddExtraButton.Size = new System.Drawing.Size(87, 23);
+            this.AddExtraButton.TabIndex = 4;
+            this.AddExtraButton.Text = "Add To Order";
+            this.AddExtraButton.UseVisualStyleBackColor = true;
+            this.AddExtraButton.Click += new System.EventHandler(this.AddExtraButton_Click);
+            // 
+            // DessertsButtonSwitch
+            // 
+            this.DessertsButtonSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.DessertsButtonSwitch.Location = new System.Drawing.Point(501, 125);
+            this.DessertsButtonSwitch.Name = "DessertsButtonSwitch";
+            this.DessertsButtonSwitch.Size = new System.Drawing.Size(111, 54);
+            this.DessertsButtonSwitch.TabIndex = 2;
+            this.DessertsButtonSwitch.Text = "Desserts";
+            this.DessertsButtonSwitch.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(403, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Add Extras!";
+            // 
+            // SwitchSidesButton
+            // 
+            this.SwitchSidesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SwitchSidesButton.Location = new System.Drawing.Point(273, 125);
+            this.SwitchSidesButton.Name = "SwitchSidesButton";
+            this.SwitchSidesButton.Size = new System.Drawing.Size(119, 54);
+            this.SwitchSidesButton.TabIndex = 0;
+            this.SwitchSidesButton.Text = "Sides";
+            this.SwitchSidesButton.UseVisualStyleBackColor = true;
+            // 
+            // ViewOrderPanel
+            // 
+            this.ViewOrderPanel.Controls.Add(this.ViewOrderTotalLabel);
+            this.ViewOrderPanel.Controls.Add(this.ViewOrderList);
+            this.ViewOrderPanel.Controls.Add(this.ViewOrderLabel);
+            this.ViewOrderPanel.Location = new System.Drawing.Point(20, 41);
+            this.ViewOrderPanel.Name = "ViewOrderPanel";
+            this.ViewOrderPanel.Size = new System.Drawing.Size(933, 552);
+            this.ViewOrderPanel.TabIndex = 6;
+            this.ViewOrderPanel.Visible = false;
+            // 
+            // ViewOrderLabel
+            // 
+            this.ViewOrderLabel.AutoSize = true;
+            this.ViewOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ViewOrderLabel.Location = new System.Drawing.Point(402, 61);
+            this.ViewOrderLabel.Name = "ViewOrderLabel";
+            this.ViewOrderLabel.Size = new System.Drawing.Size(91, 20);
+            this.ViewOrderLabel.TabIndex = 0;
+            this.ViewOrderLabel.Text = "View Order!";
+            // 
+            // ViewOrderList
+            // 
+            this.ViewOrderList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.ViewOrderList.HideSelection = false;
+            this.ViewOrderList.Location = new System.Drawing.Point(366, 128);
+            this.ViewOrderList.Name = "ViewOrderList";
+            this.ViewOrderList.Size = new System.Drawing.Size(171, 226);
+            this.ViewOrderList.TabIndex = 1;
+            this.ViewOrderList.UseCompatibleStateImageBehavior = false;
+            this.ViewOrderList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Item";
+            this.columnHeader9.Width = 100;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Cost";
+            // 
+            // ViewOrderTotalLabel
+            // 
+            this.ViewOrderTotalLabel.AutoSize = true;
+            this.ViewOrderTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ViewOrderTotalLabel.Location = new System.Drawing.Point(402, 372);
+            this.ViewOrderTotalLabel.Name = "ViewOrderTotalLabel";
+            this.ViewOrderTotalLabel.Size = new System.Drawing.Size(92, 20);
+            this.ViewOrderTotalLabel.TabIndex = 2;
+            this.ViewOrderTotalLabel.Text = "Total: $0.00";
             // 
             // Form1
             // 
@@ -531,6 +680,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(978, 595);
             this.Controls.Add(this.Back);
+            this.Controls.Add(this.ViewOrderPanel);
+            this.Controls.Add(this.SidesPanel);
             this.Controls.Add(this.OrderCreationPanel);
             this.Controls.Add(this.OrderMainPanel);
             this.Controls.Add(this.LogInPanel);
@@ -544,12 +695,15 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.startPanel.ResumeLayout(false);
             this.startPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
             this.LogInPanel.ResumeLayout(false);
             this.LogInPanel.PerformLayout();
             this.OrderMainPanel.ResumeLayout(false);
             this.OrderMainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NewOrderButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FavoritesButton)).EndInit();
             this.FavoritesPanel.ResumeLayout(false);
             this.FavoritesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
@@ -563,9 +717,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.NewBevButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewSideButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewPizzaButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NewOrderButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FavoritesButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.SidesPanel.ResumeLayout(false);
+            this.SidesPanel.PerformLayout();
+            this.ViewOrderPanel.ResumeLayout(false);
+            this.ViewOrderPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -619,6 +774,20 @@
         private System.Windows.Forms.PictureBox NewPizzaButton;
         private System.Windows.Forms.Button ImDoneButton;
         private System.Windows.Forms.Button ViewOrderButton1;
+        private System.Windows.Forms.Panel SidesPanel;
+        private System.Windows.Forms.Button DessertsButtonSwitch;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button SwitchSidesButton;
+        private System.Windows.Forms.Button AddExtraButton;
+        private System.Windows.Forms.ListView SidesListView;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Panel ViewOrderPanel;
+        private System.Windows.Forms.ListView ViewOrderList;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Label ViewOrderLabel;
+        private System.Windows.Forms.Label ViewOrderTotalLabel;
     }
 }
 

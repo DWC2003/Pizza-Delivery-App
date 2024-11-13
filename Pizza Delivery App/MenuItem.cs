@@ -13,9 +13,10 @@ namespace Pizza_Delivery_App
         public bool isVegan;
         public double cost;
 
-        public MenuItem(String type)
+        public MenuItem(String type, double cost)
         {
             itemType = type;
+            this.cost = cost;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,21 +17,42 @@ namespace Pizza_Delivery_App
     {
         public int menuPos = 0;
         public int newPos = 0;
+        Order newOrder = new Order();
+        List<MenuItem> sidesMenu = new List<MenuItem>();
         List<Order> favs = new List<Order>();
 
         public Form1()
         {
             InitializeComponent();
 
-            List<MenuItem> test = new List<MenuItem>();
-            test.Add(new Extras("Fries"));
-            test.Add(new Extras("Cola"));
-            test.Add(new Extras("Brownies"));
-            favs.Add(new Order(test));
-            favs.Add(new Order(test));
-            favs.Add(new Order(test));
+            // Populates Sides Menu
+            sidesMenu.Add(new Extras("Fries", 3.99, "Side"));
+            sidesMenu.Add(new Extras("Wings(5)", 3.99, "Side"));
+            sidesMenu.Add(new Extras("Wings(10)", 5.99, "Side"));
+            sidesMenu.Add(new Extras("Pasta", 3.99, "Side"));
+
+
+
+            for (int i = 0; i < sidesMenu.Count(); i++)
+            {
+                String[] parts = new String[2];
+
+                parts[0] = sidesMenu[i].itemType;
+                parts[1] = "" + sidesMenu[i].cost;
+
+                ListViewItem item = new ListViewItem(parts);
+                SidesListView.Items.Add(item);
+            }
+
 
             // Populates Favorites List
+            List<MenuItem> test = new List<MenuItem>();
+            test.Add(new Extras("Fries", 0, "Side"));
+            test.Add(new Extras("Cola", 0, "Beverage"));
+            test.Add(new Extras("Brownies", 0, "Dessert"));
+            favs.Add(new Order(test));
+            favs.Add(new Order(test));
+            favs.Add(new Order(test));
             for (int i = 0; i < favs.Count; i++)
             {
                 String[] items = new string[6];
@@ -87,7 +109,14 @@ namespace Pizza_Delivery_App
                     case 5:
                         OrderCreationPanel.Hide();
                         break;
-
+                    case 6:
+                        SidesPanel.Hide();
+                        break;
+                    case 9:
+                        ViewOrderPanel.Hide();
+                        ViewOrderList.Items.Clear();
+                        ViewOrderTotalLabel.Text = ("Total: $0.00");
+                        break;
 
                 }
                 switch (newPos)
@@ -110,6 +139,12 @@ namespace Pizza_Delivery_App
                         break;
                     case 5:
                         OrderCreationPanel.Show();
+                        break;
+                    case 6:
+                        SidesPanel.Show();
+                        break;
+                    case 9:
+                        ViewOrderPanel.Show();
                         break;
                 }
             }
@@ -146,6 +181,12 @@ namespace Pizza_Delivery_App
                     break;
                 case 5:
                     newPos = 3;
+                    break;
+                case 6:
+                    newPos = 5;
+                    break;
+                case 9:
+                    newPos = 5;
                     break;
             }
 
@@ -207,6 +248,46 @@ namespace Pizza_Delivery_App
         private void NewOrderButton_Click(object sender, EventArgs e)
         {
             newPos = 5;
+        }
+
+        private void NewSideButton_Click(object sender, EventArgs e)
+        {
+            newPos = 6;
+        }
+
+        private void NewPizzaButton_Click(object sender, EventArgs e)
+        {
+            newPos = 7;
+        }
+
+        private void NewBevButton_Click(object sender, EventArgs e)
+        {
+            newPos = 8;
+        }
+
+        private void AddExtraButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < SidesListView.Items.Count; i++)
+            {
+                if (SidesListView.Items[i].Checked)
+                {
+                    newOrder.addItem(sidesMenu[i]);
+                }
+            }
+        }
+
+        private void ViewOrderButton1_Click(object sender, EventArgs e)
+        {
+            newPos = 9;
+            for (int i = 0; i < newOrder.items.Count(); i++)
+            {
+                String[] parts = new string[2];
+                parts[0] = newOrder.items[i].itemType;
+                parts[1] = newOrder.items[i].cost + "";
+                ListViewItem item = new ListViewItem(parts);
+                ViewOrderList.Items.Add(item);
+            }
+            ViewOrderTotalLabel.Text = ("Total: $" + newOrder.getTotal());
         }
     }
 }

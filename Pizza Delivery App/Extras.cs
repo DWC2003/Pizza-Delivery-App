@@ -12,9 +12,9 @@ namespace Pizza_Delivery_App
     {
         public String itemSubType;
 
-        public Extras(String type) : base(type)
+        public Extras(String type, double cost, String subType) : base(type, cost)
         {
-            
+            itemSubType = subType;
         }
 
         public void setType(String type)
