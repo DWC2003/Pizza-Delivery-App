@@ -28,6 +28,11 @@ namespace Pizza_Delivery_App
             items.Add(item);
         }
 
+        public void removeItem(int i)
+        {
+            items.RemoveAt(i);
+        }
+
         public double getTotal()
         {   
             double total = 0;
