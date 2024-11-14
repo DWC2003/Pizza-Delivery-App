@@ -71,6 +71,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.OrderCreationPanel = new System.Windows.Forms.Panel();
+            this.CreationLabel3 = new System.Windows.Forms.Label();
+            this.CreationLabel2 = new System.Windows.Forms.Label();
+            this.CreationLabel1 = new System.Windows.Forms.Label();
             this.ImDoneButton = new System.Windows.Forms.Button();
             this.ViewOrderButton1 = new System.Windows.Forms.Button();
             this.NewBevButton = new System.Windows.Forms.PictureBox();
@@ -78,35 +81,53 @@
             this.NewPizzaButton = new System.Windows.Forms.PictureBox();
             this.CreateYourOrderLabel = new System.Windows.Forms.Label();
             this.SidesPanel = new System.Windows.Forms.Panel();
-            this.SidesListView = new System.Windows.Forms.ListView();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SidesAddedLabel = new System.Windows.Forms.Label();
             this.AddExtraButton = new System.Windows.Forms.Button();
             this.DessertsButtonSwitch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SwitchSidesButton = new System.Windows.Forms.Button();
-            this.ViewOrderPanel = new System.Windows.Forms.Panel();
-            this.ViewOrderLabel = new System.Windows.Forms.Label();
-            this.ViewOrderList = new System.Windows.Forms.ListView();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ViewOrderTotalLabel = new System.Windows.Forms.Label();
-            this.SidesAddedLabel = new System.Windows.Forms.Label();
+            this.SidesListView = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DessertsListView = new System.Windows.Forms.ListView();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ViewOrderPanel = new System.Windows.Forms.Panel();
+            this.RemoveItemsLabel = new System.Windows.Forms.Label();
+            this.RemoveItemButton = new System.Windows.Forms.Button();
+            this.ViewOrderTotalLabel = new System.Windows.Forms.Label();
+            this.ViewOrderList = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ViewOrderLabel = new System.Windows.Forms.Label();
             this.BeveragesOrderPanel = new System.Windows.Forms.Panel();
-            this.AddBeveragesLabel = new System.Windows.Forms.Label();
-            this.BeveragesListView = new System.Windows.Forms.ListView();
+            this.BevAddedLabel = new System.Windows.Forms.Label();
             this.AddBevButton = new System.Windows.Forms.Button();
+            this.BeveragesListView = new System.Windows.Forms.ListView();
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BevAddedLabel = new System.Windows.Forms.Label();
-            this.RemoveItemButton = new System.Windows.Forms.Button();
-            this.RemoveItemsLabel = new System.Windows.Forms.Label();
-            this.CreationLabel1 = new System.Windows.Forms.Label();
-            this.CreationLabel2 = new System.Windows.Forms.Label();
-            this.CreationLabel3 = new System.Windows.Forms.Label();
+            this.AddBeveragesLabel = new System.Windows.Forms.Label();
+            this.PizzaCreationPanel = new System.Windows.Forms.Panel();
+            this.PizzaLabel = new System.Windows.Forms.Label();
+            this.SmallButton = new System.Windows.Forms.Button();
+            this.MediumButton = new System.Windows.Forms.Button();
+            this.LargeButton = new System.Windows.Forms.Button();
+            this.XLButton = new System.Windows.Forms.Button();
+            this.CrustListView = new System.Windows.Forms.ListView();
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CrustContinueButton = new System.Windows.Forms.Button();
+            this.PizzaErrorLabel = new System.Windows.Forms.Label();
+            this.SauceListView = new System.Windows.Forms.ListView();
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SauceContinueButton = new System.Windows.Forms.Button();
+            this.SauceCheckBox = new System.Windows.Forms.CheckBox();
+            this.ToppingListView = new System.Windows.Forms.ListView();
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PizzaFinishButton = new System.Windows.Forms.Button();
+            this.CheeseCheckBox = new System.Windows.Forms.CheckBox();
             this.startPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.InfoPanel.SuspendLayout();
@@ -127,6 +148,7 @@
             this.SidesPanel.SuspendLayout();
             this.ViewOrderPanel.SuspendLayout();
             this.BeveragesOrderPanel.SuspendLayout();
+            this.PizzaCreationPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // logIn
@@ -501,6 +523,36 @@
             this.OrderCreationPanel.TabIndex = 13;
             this.OrderCreationPanel.Visible = false;
             // 
+            // CreationLabel3
+            // 
+            this.CreationLabel3.AutoSize = true;
+            this.CreationLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CreationLabel3.Location = new System.Drawing.Point(590, 110);
+            this.CreationLabel3.Name = "CreationLabel3";
+            this.CreationLabel3.Size = new System.Drawing.Size(105, 17);
+            this.CreationLabel3.TabIndex = 8;
+            this.CreationLabel3.Text = "Add Beverages";
+            // 
+            // CreationLabel2
+            // 
+            this.CreationLabel2.AutoSize = true;
+            this.CreationLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CreationLabel2.Location = new System.Drawing.Point(388, 110);
+            this.CreationLabel2.Name = "CreationLabel2";
+            this.CreationLabel2.Size = new System.Drawing.Size(132, 17);
+            this.CreationLabel2.TabIndex = 7;
+            this.CreationLabel2.Text = "Add Sides/Desserts";
+            // 
+            // CreationLabel1
+            // 
+            this.CreationLabel1.AutoSize = true;
+            this.CreationLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CreationLabel1.Location = new System.Drawing.Point(210, 110);
+            this.CreationLabel1.Name = "CreationLabel1";
+            this.CreationLabel1.Size = new System.Drawing.Size(88, 17);
+            this.CreationLabel1.TabIndex = 6;
+            this.CreationLabel1.Text = "Create Pizza";
+            // 
             // ImDoneButton
             // 
             this.ImDoneButton.Location = new System.Drawing.Point(516, 417);
@@ -581,28 +633,14 @@
             this.SidesPanel.TabIndex = 14;
             this.SidesPanel.Visible = false;
             // 
-            // SidesListView
+            // SidesAddedLabel
             // 
-            this.SidesListView.CheckBoxes = true;
-            this.SidesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8});
-            this.SidesListView.HideSelection = false;
-            this.SidesListView.Location = new System.Drawing.Point(369, 203);
-            this.SidesListView.Name = "SidesListView";
-            this.SidesListView.Size = new System.Drawing.Size(161, 243);
-            this.SidesListView.TabIndex = 5;
-            this.SidesListView.UseCompatibleStateImageBehavior = false;
-            this.SidesListView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Name";
-            this.columnHeader7.Width = 100;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Price";
+            this.SidesAddedLabel.AutoSize = true;
+            this.SidesAddedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.SidesAddedLabel.Location = new System.Drawing.Point(379, 491);
+            this.SidesAddedLabel.Name = "SidesAddedLabel";
+            this.SidesAddedLabel.Size = new System.Drawing.Size(0, 17);
+            this.SidesAddedLabel.TabIndex = 6;
             // 
             // AddExtraButton
             // 
@@ -646,70 +684,28 @@
             this.SwitchSidesButton.UseVisualStyleBackColor = true;
             this.SwitchSidesButton.Click += new System.EventHandler(this.SwitchSidesButton_Click);
             // 
-            // ViewOrderPanel
+            // SidesListView
             // 
-            this.ViewOrderPanel.Controls.Add(this.RemoveItemsLabel);
-            this.ViewOrderPanel.Controls.Add(this.RemoveItemButton);
-            this.ViewOrderPanel.Controls.Add(this.ViewOrderTotalLabel);
-            this.ViewOrderPanel.Controls.Add(this.ViewOrderList);
-            this.ViewOrderPanel.Controls.Add(this.ViewOrderLabel);
-            this.ViewOrderPanel.Location = new System.Drawing.Point(20, 41);
-            this.ViewOrderPanel.Name = "ViewOrderPanel";
-            this.ViewOrderPanel.Size = new System.Drawing.Size(933, 552);
-            this.ViewOrderPanel.TabIndex = 6;
-            this.ViewOrderPanel.Visible = false;
+            this.SidesListView.CheckBoxes = true;
+            this.SidesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8});
+            this.SidesListView.HideSelection = false;
+            this.SidesListView.Location = new System.Drawing.Point(369, 203);
+            this.SidesListView.Name = "SidesListView";
+            this.SidesListView.Size = new System.Drawing.Size(161, 243);
+            this.SidesListView.TabIndex = 5;
+            this.SidesListView.UseCompatibleStateImageBehavior = false;
+            this.SidesListView.View = System.Windows.Forms.View.Details;
             // 
-            // ViewOrderLabel
+            // columnHeader7
             // 
-            this.ViewOrderLabel.AutoSize = true;
-            this.ViewOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ViewOrderLabel.Location = new System.Drawing.Point(402, 61);
-            this.ViewOrderLabel.Name = "ViewOrderLabel";
-            this.ViewOrderLabel.Size = new System.Drawing.Size(91, 20);
-            this.ViewOrderLabel.TabIndex = 0;
-            this.ViewOrderLabel.Text = "View Order!";
+            this.columnHeader7.Text = "Name";
+            this.columnHeader7.Width = 100;
             // 
-            // ViewOrderList
+            // columnHeader8
             // 
-            this.ViewOrderList.CheckBoxes = true;
-            this.ViewOrderList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader9,
-            this.columnHeader10});
-            this.ViewOrderList.HideSelection = false;
-            this.ViewOrderList.Location = new System.Drawing.Point(366, 128);
-            this.ViewOrderList.Name = "ViewOrderList";
-            this.ViewOrderList.Size = new System.Drawing.Size(171, 226);
-            this.ViewOrderList.TabIndex = 1;
-            this.ViewOrderList.UseCompatibleStateImageBehavior = false;
-            this.ViewOrderList.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Item";
-            this.columnHeader9.Width = 100;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Cost";
-            // 
-            // ViewOrderTotalLabel
-            // 
-            this.ViewOrderTotalLabel.AutoSize = true;
-            this.ViewOrderTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ViewOrderTotalLabel.Location = new System.Drawing.Point(402, 372);
-            this.ViewOrderTotalLabel.Name = "ViewOrderTotalLabel";
-            this.ViewOrderTotalLabel.Size = new System.Drawing.Size(92, 20);
-            this.ViewOrderTotalLabel.TabIndex = 2;
-            this.ViewOrderTotalLabel.Text = "Total: $0.00";
-            // 
-            // SidesAddedLabel
-            // 
-            this.SidesAddedLabel.AutoSize = true;
-            this.SidesAddedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.SidesAddedLabel.Location = new System.Drawing.Point(379, 491);
-            this.SidesAddedLabel.Name = "SidesAddedLabel";
-            this.SidesAddedLabel.Size = new System.Drawing.Size(0, 17);
-            this.SidesAddedLabel.TabIndex = 6;
+            this.columnHeader8.Text = "Price";
             // 
             // DessertsListView
             // 
@@ -734,6 +730,81 @@
             // 
             this.columnHeader12.Text = "Price";
             // 
+            // ViewOrderPanel
+            // 
+            this.ViewOrderPanel.Controls.Add(this.RemoveItemsLabel);
+            this.ViewOrderPanel.Controls.Add(this.RemoveItemButton);
+            this.ViewOrderPanel.Controls.Add(this.ViewOrderTotalLabel);
+            this.ViewOrderPanel.Controls.Add(this.ViewOrderList);
+            this.ViewOrderPanel.Controls.Add(this.ViewOrderLabel);
+            this.ViewOrderPanel.Location = new System.Drawing.Point(20, 41);
+            this.ViewOrderPanel.Name = "ViewOrderPanel";
+            this.ViewOrderPanel.Size = new System.Drawing.Size(933, 552);
+            this.ViewOrderPanel.TabIndex = 6;
+            this.ViewOrderPanel.Visible = false;
+            // 
+            // RemoveItemsLabel
+            // 
+            this.RemoveItemsLabel.AutoSize = true;
+            this.RemoveItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.RemoveItemsLabel.Location = new System.Drawing.Point(363, 455);
+            this.RemoveItemsLabel.Name = "RemoveItemsLabel";
+            this.RemoveItemsLabel.Size = new System.Drawing.Size(0, 17);
+            this.RemoveItemsLabel.TabIndex = 4;
+            // 
+            // RemoveItemButton
+            // 
+            this.RemoveItemButton.Location = new System.Drawing.Point(406, 404);
+            this.RemoveItemButton.Name = "RemoveItemButton";
+            this.RemoveItemButton.Size = new System.Drawing.Size(87, 23);
+            this.RemoveItemButton.TabIndex = 3;
+            this.RemoveItemButton.Text = "Remove Items";
+            this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
+            // 
+            // ViewOrderTotalLabel
+            // 
+            this.ViewOrderTotalLabel.AutoSize = true;
+            this.ViewOrderTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ViewOrderTotalLabel.Location = new System.Drawing.Point(402, 372);
+            this.ViewOrderTotalLabel.Name = "ViewOrderTotalLabel";
+            this.ViewOrderTotalLabel.Size = new System.Drawing.Size(92, 20);
+            this.ViewOrderTotalLabel.TabIndex = 2;
+            this.ViewOrderTotalLabel.Text = "Total: $0.00";
+            // 
+            // ViewOrderList
+            // 
+            this.ViewOrderList.CheckBoxes = true;
+            this.ViewOrderList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.ViewOrderList.HideSelection = false;
+            this.ViewOrderList.Location = new System.Drawing.Point(366, 128);
+            this.ViewOrderList.Name = "ViewOrderList";
+            this.ViewOrderList.Size = new System.Drawing.Size(171, 226);
+            this.ViewOrderList.TabIndex = 1;
+            this.ViewOrderList.UseCompatibleStateImageBehavior = false;
+            this.ViewOrderList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Item";
+            this.columnHeader9.Width = 100;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Cost";
+            // 
+            // ViewOrderLabel
+            // 
+            this.ViewOrderLabel.AutoSize = true;
+            this.ViewOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ViewOrderLabel.Location = new System.Drawing.Point(402, 61);
+            this.ViewOrderLabel.Name = "ViewOrderLabel";
+            this.ViewOrderLabel.Size = new System.Drawing.Size(91, 20);
+            this.ViewOrderLabel.TabIndex = 0;
+            this.ViewOrderLabel.Text = "View Order!";
+            // 
             // BeveragesOrderPanel
             // 
             this.BeveragesOrderPanel.Controls.Add(this.BevAddedLabel);
@@ -746,15 +817,24 @@
             this.BeveragesOrderPanel.TabIndex = 8;
             this.BeveragesOrderPanel.Visible = false;
             // 
-            // AddBeveragesLabel
+            // BevAddedLabel
             // 
-            this.AddBeveragesLabel.AutoSize = true;
-            this.AddBeveragesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.AddBeveragesLabel.Location = new System.Drawing.Point(407, 58);
-            this.AddBeveragesLabel.Name = "AddBeveragesLabel";
-            this.AddBeveragesLabel.Size = new System.Drawing.Size(122, 20);
-            this.AddBeveragesLabel.TabIndex = 0;
-            this.AddBeveragesLabel.Text = "Add Beverages!";
+            this.BevAddedLabel.AutoSize = true;
+            this.BevAddedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BevAddedLabel.Location = new System.Drawing.Point(400, 401);
+            this.BevAddedLabel.Name = "BevAddedLabel";
+            this.BevAddedLabel.Size = new System.Drawing.Size(0, 17);
+            this.BevAddedLabel.TabIndex = 3;
+            // 
+            // AddBevButton
+            // 
+            this.AddBevButton.Location = new System.Drawing.Point(424, 347);
+            this.AddBevButton.Name = "AddBevButton";
+            this.AddBevButton.Size = new System.Drawing.Size(84, 23);
+            this.AddBevButton.TabIndex = 2;
+            this.AddBevButton.Text = "Add To Order";
+            this.AddBevButton.UseVisualStyleBackColor = true;
+            this.AddBevButton.Click += new System.EventHandler(this.AddBevButton_Click);
             // 
             // BeveragesListView
             // 
@@ -770,16 +850,6 @@
             this.BeveragesListView.UseCompatibleStateImageBehavior = false;
             this.BeveragesListView.View = System.Windows.Forms.View.Details;
             // 
-            // AddBevButton
-            // 
-            this.AddBevButton.Location = new System.Drawing.Point(424, 347);
-            this.AddBevButton.Name = "AddBevButton";
-            this.AddBevButton.Size = new System.Drawing.Size(84, 23);
-            this.AddBevButton.TabIndex = 2;
-            this.AddBevButton.Text = "Add To Order";
-            this.AddBevButton.UseVisualStyleBackColor = true;
-            this.AddBevButton.Click += new System.EventHandler(this.AddBevButton_Click);
-            // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Name";
@@ -789,69 +859,239 @@
             // 
             this.columnHeader14.Text = "Price";
             // 
-            // BevAddedLabel
+            // AddBeveragesLabel
             // 
-            this.BevAddedLabel.AutoSize = true;
-            this.BevAddedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BevAddedLabel.Location = new System.Drawing.Point(400, 401);
-            this.BevAddedLabel.Name = "BevAddedLabel";
-            this.BevAddedLabel.Size = new System.Drawing.Size(0, 17);
-            this.BevAddedLabel.TabIndex = 3;
+            this.AddBeveragesLabel.AutoSize = true;
+            this.AddBeveragesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.AddBeveragesLabel.Location = new System.Drawing.Point(407, 58);
+            this.AddBeveragesLabel.Name = "AddBeveragesLabel";
+            this.AddBeveragesLabel.Size = new System.Drawing.Size(122, 20);
+            this.AddBeveragesLabel.TabIndex = 0;
+            this.AddBeveragesLabel.Text = "Add Beverages!";
             // 
-            // RemoveItemButton
+            // PizzaCreationPanel
             // 
-            this.RemoveItemButton.Location = new System.Drawing.Point(406, 404);
-            this.RemoveItemButton.Name = "RemoveItemButton";
-            this.RemoveItemButton.Size = new System.Drawing.Size(87, 23);
-            this.RemoveItemButton.TabIndex = 3;
-            this.RemoveItemButton.Text = "Remove Items";
-            this.RemoveItemButton.UseVisualStyleBackColor = true;
-            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
+            this.PizzaCreationPanel.Controls.Add(this.CheeseCheckBox);
+            this.PizzaCreationPanel.Controls.Add(this.PizzaFinishButton);
+            this.PizzaCreationPanel.Controls.Add(this.ToppingListView);
+            this.PizzaCreationPanel.Controls.Add(this.SauceCheckBox);
+            this.PizzaCreationPanel.Controls.Add(this.SauceContinueButton);
+            this.PizzaCreationPanel.Controls.Add(this.SauceListView);
+            this.PizzaCreationPanel.Controls.Add(this.PizzaErrorLabel);
+            this.PizzaCreationPanel.Controls.Add(this.CrustContinueButton);
+            this.PizzaCreationPanel.Controls.Add(this.CrustListView);
+            this.PizzaCreationPanel.Controls.Add(this.XLButton);
+            this.PizzaCreationPanel.Controls.Add(this.LargeButton);
+            this.PizzaCreationPanel.Controls.Add(this.MediumButton);
+            this.PizzaCreationPanel.Controls.Add(this.SmallButton);
+            this.PizzaCreationPanel.Controls.Add(this.PizzaLabel);
+            this.PizzaCreationPanel.Location = new System.Drawing.Point(12, 41);
+            this.PizzaCreationPanel.Name = "PizzaCreationPanel";
+            this.PizzaCreationPanel.Size = new System.Drawing.Size(954, 549);
+            this.PizzaCreationPanel.TabIndex = 9;
+            this.PizzaCreationPanel.Visible = false;
             // 
-            // RemoveItemsLabel
+            // PizzaLabel
             // 
-            this.RemoveItemsLabel.AutoSize = true;
-            this.RemoveItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.RemoveItemsLabel.Location = new System.Drawing.Point(363, 455);
-            this.RemoveItemsLabel.Name = "RemoveItemsLabel";
-            this.RemoveItemsLabel.Size = new System.Drawing.Size(0, 17);
-            this.RemoveItemsLabel.TabIndex = 4;
+            this.PizzaLabel.AutoSize = true;
+            this.PizzaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.PizzaLabel.Location = new System.Drawing.Point(370, 61);
+            this.PizzaLabel.Name = "PizzaLabel";
+            this.PizzaLabel.Size = new System.Drawing.Size(190, 20);
+            this.PizzaLabel.TabIndex = 0;
+            this.PizzaLabel.Text = "Create a Pizza! (Step 1/4)";
             // 
-            // CreationLabel1
+            // SmallButton
             // 
-            this.CreationLabel1.AutoSize = true;
-            this.CreationLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CreationLabel1.Location = new System.Drawing.Point(210, 110);
-            this.CreationLabel1.Name = "CreationLabel1";
-            this.CreationLabel1.Size = new System.Drawing.Size(88, 17);
-            this.CreationLabel1.TabIndex = 6;
-            this.CreationLabel1.Text = "Create Pizza";
+            this.SmallButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.SmallButton.Location = new System.Drawing.Point(176, 200);
+            this.SmallButton.Name = "SmallButton";
+            this.SmallButton.Size = new System.Drawing.Size(128, 116);
+            this.SmallButton.TabIndex = 1;
+            this.SmallButton.Text = "Small";
+            this.SmallButton.UseVisualStyleBackColor = true;
+            this.SmallButton.Click += new System.EventHandler(this.SmallButton_Click);
             // 
-            // CreationLabel2
+            // MediumButton
             // 
-            this.CreationLabel2.AutoSize = true;
-            this.CreationLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CreationLabel2.Location = new System.Drawing.Point(388, 110);
-            this.CreationLabel2.Name = "CreationLabel2";
-            this.CreationLabel2.Size = new System.Drawing.Size(132, 17);
-            this.CreationLabel2.TabIndex = 7;
-            this.CreationLabel2.Text = "Add Sides/Desserts";
+            this.MediumButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.MediumButton.Location = new System.Drawing.Point(320, 200);
+            this.MediumButton.Name = "MediumButton";
+            this.MediumButton.Size = new System.Drawing.Size(128, 116);
+            this.MediumButton.TabIndex = 2;
+            this.MediumButton.Text = "Medium";
+            this.MediumButton.UseVisualStyleBackColor = true;
+            this.MediumButton.Click += new System.EventHandler(this.MediumButton_Click);
             // 
-            // CreationLabel3
+            // LargeButton
             // 
-            this.CreationLabel3.AutoSize = true;
-            this.CreationLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CreationLabel3.Location = new System.Drawing.Point(590, 110);
-            this.CreationLabel3.Name = "CreationLabel3";
-            this.CreationLabel3.Size = new System.Drawing.Size(105, 17);
-            this.CreationLabel3.TabIndex = 8;
-            this.CreationLabel3.Text = "Add Beverages";
+            this.LargeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LargeButton.Location = new System.Drawing.Point(464, 200);
+            this.LargeButton.Name = "LargeButton";
+            this.LargeButton.Size = new System.Drawing.Size(128, 116);
+            this.LargeButton.TabIndex = 3;
+            this.LargeButton.Text = "Large";
+            this.LargeButton.UseVisualStyleBackColor = true;
+            this.LargeButton.Click += new System.EventHandler(this.LargeButton_Click);
+            // 
+            // XLButton
+            // 
+            this.XLButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.XLButton.Location = new System.Drawing.Point(608, 200);
+            this.XLButton.Name = "XLButton";
+            this.XLButton.Size = new System.Drawing.Size(128, 116);
+            this.XLButton.TabIndex = 4;
+            this.XLButton.Text = "Extra Large";
+            this.XLButton.UseVisualStyleBackColor = true;
+            this.XLButton.Click += new System.EventHandler(this.XLButton_Click);
+            // 
+            // CrustListView
+            // 
+            this.CrustListView.CheckBoxes = true;
+            this.CrustListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader15,
+            this.columnHeader16});
+            this.CrustListView.HideSelection = false;
+            this.CrustListView.Location = new System.Drawing.Point(381, 113);
+            this.CrustListView.Name = "CrustListView";
+            this.CrustListView.Size = new System.Drawing.Size(164, 288);
+            this.CrustListView.TabIndex = 5;
+            this.CrustListView.UseCompatibleStateImageBehavior = false;
+            this.CrustListView.View = System.Windows.Forms.View.Details;
+            this.CrustListView.Visible = false;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Crust";
+            this.columnHeader15.Width = 100;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Price";
+            // 
+            // CrustContinueButton
+            // 
+            this.CrustContinueButton.Location = new System.Drawing.Point(424, 420);
+            this.CrustContinueButton.Name = "CrustContinueButton";
+            this.CrustContinueButton.Size = new System.Drawing.Size(75, 23);
+            this.CrustContinueButton.TabIndex = 6;
+            this.CrustContinueButton.Text = "Continue";
+            this.CrustContinueButton.UseVisualStyleBackColor = true;
+            this.CrustContinueButton.Visible = false;
+            this.CrustContinueButton.Click += new System.EventHandler(this.CrustContinueButton_Click);
+            // 
+            // PizzaErrorLabel
+            // 
+            this.PizzaErrorLabel.AutoSize = true;
+            this.PizzaErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.PizzaErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.PizzaErrorLabel.Location = new System.Drawing.Point(339, 479);
+            this.PizzaErrorLabel.Name = "PizzaErrorLabel";
+            this.PizzaErrorLabel.Size = new System.Drawing.Size(0, 17);
+            this.PizzaErrorLabel.TabIndex = 7;
+            // 
+            // SauceListView
+            // 
+            this.SauceListView.CheckBoxes = true;
+            this.SauceListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader17,
+            this.columnHeader18});
+            this.SauceListView.HideSelection = false;
+            this.SauceListView.Location = new System.Drawing.Point(381, 113);
+            this.SauceListView.Name = "SauceListView";
+            this.SauceListView.Size = new System.Drawing.Size(164, 288);
+            this.SauceListView.TabIndex = 8;
+            this.SauceListView.UseCompatibleStateImageBehavior = false;
+            this.SauceListView.View = System.Windows.Forms.View.Details;
+            this.SauceListView.Visible = false;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Sauce";
+            this.columnHeader17.Width = 100;
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Price";
+            // 
+            // SauceContinueButton
+            // 
+            this.SauceContinueButton.Location = new System.Drawing.Point(424, 420);
+            this.SauceContinueButton.Name = "SauceContinueButton";
+            this.SauceContinueButton.Size = new System.Drawing.Size(75, 23);
+            this.SauceContinueButton.TabIndex = 9;
+            this.SauceContinueButton.Text = "Continue";
+            this.SauceContinueButton.UseVisualStyleBackColor = true;
+            this.SauceContinueButton.Visible = false;
+            this.SauceContinueButton.Click += new System.EventHandler(this.SauceContinueButton_Click);
+            // 
+            // SauceCheckBox
+            // 
+            this.SauceCheckBox.AutoSize = true;
+            this.SauceCheckBox.Checked = true;
+            this.SauceCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SauceCheckBox.Location = new System.Drawing.Point(563, 244);
+            this.SauceCheckBox.Name = "SauceCheckBox";
+            this.SauceCheckBox.Size = new System.Drawing.Size(63, 17);
+            this.SauceCheckBox.TabIndex = 10;
+            this.SauceCheckBox.Text = "Sauce?";
+            this.SauceCheckBox.UseVisualStyleBackColor = true;
+            this.SauceCheckBox.Visible = false;
+            // 
+            // ToppingListView
+            // 
+            this.ToppingListView.CheckBoxes = true;
+            this.ToppingListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader19,
+            this.columnHeader20});
+            this.ToppingListView.HideSelection = false;
+            this.ToppingListView.Location = new System.Drawing.Point(380, 113);
+            this.ToppingListView.Name = "ToppingListView";
+            this.ToppingListView.Size = new System.Drawing.Size(165, 288);
+            this.ToppingListView.TabIndex = 11;
+            this.ToppingListView.UseCompatibleStateImageBehavior = false;
+            this.ToppingListView.View = System.Windows.Forms.View.Details;
+            this.ToppingListView.Visible = false;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Topping";
+            this.columnHeader19.Width = 100;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Price";
+            // 
+            // PizzaFinishButton
+            // 
+            this.PizzaFinishButton.Location = new System.Drawing.Point(424, 420);
+            this.PizzaFinishButton.Name = "PizzaFinishButton";
+            this.PizzaFinishButton.Size = new System.Drawing.Size(75, 23);
+            this.PizzaFinishButton.TabIndex = 12;
+            this.PizzaFinishButton.Text = "Finish!";
+            this.PizzaFinishButton.UseVisualStyleBackColor = true;
+            this.PizzaFinishButton.Visible = false;
+            this.PizzaFinishButton.Click += new System.EventHandler(this.PizzaFinishButton_Click);
+            // 
+            // CheeseCheckBox
+            // 
+            this.CheeseCheckBox.AutoSize = true;
+            this.CheeseCheckBox.Checked = true;
+            this.CheeseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheeseCheckBox.Location = new System.Drawing.Point(563, 244);
+            this.CheeseCheckBox.Name = "CheeseCheckBox";
+            this.CheeseCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.CheeseCheckBox.TabIndex = 13;
+            this.CheeseCheckBox.Text = "Cheese?";
+            this.CheeseCheckBox.UseVisualStyleBackColor = true;
+            this.CheeseCheckBox.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(978, 595);
+            this.Controls.Add(this.PizzaCreationPanel);
             this.Controls.Add(this.OrderCreationPanel);
             this.Controls.Add(this.OrderMainPanel);
             this.Controls.Add(this.ViewOrderPanel);
@@ -864,6 +1104,8 @@
             this.Controls.Add(this.SignUpPanel);
             this.Controls.Add(this.FavoritesPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(994, 634);
+            this.MinimumSize = new System.Drawing.Size(994, 634);
             this.Name = "Form1";
             this.Text = "Pizza Delivery App";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -897,6 +1139,8 @@
             this.ViewOrderPanel.PerformLayout();
             this.BeveragesOrderPanel.ResumeLayout(false);
             this.BeveragesOrderPanel.PerformLayout();
+            this.PizzaCreationPanel.ResumeLayout(false);
+            this.PizzaCreationPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -980,6 +1224,27 @@
         private System.Windows.Forms.Label CreationLabel3;
         private System.Windows.Forms.Label CreationLabel2;
         private System.Windows.Forms.Label CreationLabel1;
+        private System.Windows.Forms.Panel PizzaCreationPanel;
+        private System.Windows.Forms.Label PizzaLabel;
+        private System.Windows.Forms.Button XLButton;
+        private System.Windows.Forms.Button LargeButton;
+        private System.Windows.Forms.Button MediumButton;
+        private System.Windows.Forms.Button SmallButton;
+        private System.Windows.Forms.ListView CrustListView;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.Button CrustContinueButton;
+        private System.Windows.Forms.Label PizzaErrorLabel;
+        private System.Windows.Forms.ListView SauceListView;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.Button SauceContinueButton;
+        private System.Windows.Forms.CheckBox SauceCheckBox;
+        private System.Windows.Forms.CheckBox CheeseCheckBox;
+        private System.Windows.Forms.Button PizzaFinishButton;
+        private System.Windows.Forms.ListView ToppingListView;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
     }
 }
 

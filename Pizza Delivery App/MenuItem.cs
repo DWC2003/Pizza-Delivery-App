@@ -18,5 +18,13 @@ namespace Pizza_Delivery_App
             itemType = type;
             this.cost = cost;
         }
+
+        public abstract List<MenuItem> getToppings();
+
+        public abstract void removeToppings(int index);
+
+        public abstract int getSize();
+
+
     }
 }

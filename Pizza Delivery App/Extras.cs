@@ -21,5 +21,23 @@ namespace Pizza_Delivery_App
         {
 
         }
+
+        override
+        public List<MenuItem> getToppings()
+        {
+            return new List<MenuItem>();
+        }
+
+        override
+        public void removeToppings(int index)
+        {
+
+        }
+
+        override
+        public int getSize()
+        {
+            return 0;
+        }
     }
 }
