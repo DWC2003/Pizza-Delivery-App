@@ -17,12 +17,15 @@ namespace Pizza_Delivery_App
 {
     public partial class Form1 : Form
     {
+        // Menu Logic Variables
         public int menuPos = 0;
         public int newPos = 0;
         public int pizzaPos = 0;
         int orderToppingNum = 0;
+        // Order and Pizza Construction Variables
         Order newOrder = new Order();
         Pizza newPizza;
+        // Menus
         List<MenuItem> sidesMenu = new List<MenuItem>();
         List<MenuItem> dessertsMenu = new List<MenuItem>();
         List<MenuItem> bevMenu = new List<MenuItem>();
@@ -290,6 +293,7 @@ namespace Pizza_Delivery_App
                     newPos = 5;
                     break;
                 case 7:
+                    // Pizza construction screen has its own logic so that it can use one panel. This was a nightmare!
                     switch (pizzaPos)
                     {
                         case 0:
@@ -364,6 +368,7 @@ namespace Pizza_Delivery_App
             newPos = 4;
         }
 
+        // The below three methods do absolutely nothing but I can't figure out how to get rid of them without everything breaking so :/
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'ordersTestDataSet1.Orders' table. You can move, or remove it, as needed.
@@ -419,6 +424,7 @@ namespace Pizza_Delivery_App
 
         private void AddExtraButton_Click(object sender, EventArgs e)
         {
+            // Adds a side or dessert to newOrder depending on what is selected.
             int numAdded = 0;
             if (SidesListView.Visible)
             {
@@ -448,9 +454,10 @@ namespace Pizza_Delivery_App
 
         private void ViewOrderButton1_Click(object sender, EventArgs e)
         {
+            // Switches to the view order screen and fills up the list which contains the order information.
+            // Pizzas are special cases. When one is encounter in the item list, it adds each topping on its own row.
             newPos = 9;
 
-            
             for (int i = 0; i < newOrder.items.Count(); i++)
             {
                 String[] parts = new string[2];
@@ -496,6 +503,7 @@ namespace Pizza_Delivery_App
             ViewOrderTotalLabel.Text = ("Total: $" + newOrder.getTotal());
         }
 
+        // The below two methods toggle between the sides menu and desserts menu on the extras screen.
         private void SwitchSidesButton_Click(object sender, EventArgs e)
         {
             SidesListView.Show();
@@ -510,6 +518,7 @@ namespace Pizza_Delivery_App
 
         private void AddBevButton_Click(object sender, EventArgs e)
         {
+            // Adds selected beverage to newOrder.
             int numAdded = 0;
             for (int i = 0; i < BeveragesListView.Items.Count; i++)
             {
@@ -525,6 +534,8 @@ namespace Pizza_Delivery_App
 
         private void RemoveItemButton_Click(object sender, EventArgs e)
         {
+            // Removes selected items from order, including toppings.
+            // I have no idea how I made this work.
             int numRemoved = 0;
             int menuOffset = 0;
             int recentPizzaPos = 0;
@@ -635,6 +646,7 @@ namespace Pizza_Delivery_App
 
         }
 
+        // The below four methods create new pizzas of the respective size.
         private void SmallButton_Click(object sender, EventArgs e)
         {
             newPizza = new Pizza("Pizza", 5.99, 1);
@@ -692,6 +704,7 @@ namespace Pizza_Delivery_App
 
         private void CrustContinueButton_Click(object sender, EventArgs e)
         {
+            // Adds selected crust to pizza and continues to next step.
             int selected = 0;
             int selectedIndex = 0;
             for (int i = 0; i < CrustListView.Items.Count; i++)
@@ -724,6 +737,7 @@ namespace Pizza_Delivery_App
 
         private void SauceContinueButton_Click(object sender, EventArgs e)
         {
+            // Adds selected sauce to pizza and continues to next step.
             int selected = 0;
             int selectedIndex = 0;
             for (int i = 0; i < SauceListView.Items.Count; i++)
@@ -783,6 +797,7 @@ namespace Pizza_Delivery_App
 
         private void PizzaFinishButton_Click(object sender, EventArgs e)
         {
+            // Finishes construction of pizza and adds it to the order. Returns to order creation screen.
             for (int i = 0; i < ToppingListView.Items.Count; i++)
             {
                 if (ToppingListView.Items[i].Checked)
