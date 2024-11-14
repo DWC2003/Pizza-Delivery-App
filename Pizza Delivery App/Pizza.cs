@@ -52,5 +52,11 @@ namespace Pizza_Delivery_App
         {
             return size;
         }
+
+        override
+        public bool getCheese()
+        {
+            return cheese;
+        }
     }
 }

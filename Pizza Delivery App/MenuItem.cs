@@ -25,6 +25,8 @@ namespace Pizza_Delivery_App
 
         public abstract int getSize();
 
+        public abstract bool getCheese();
+
 
     }
 }

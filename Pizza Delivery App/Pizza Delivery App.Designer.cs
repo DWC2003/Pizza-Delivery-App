@@ -779,9 +779,9 @@
             this.columnHeader9,
             this.columnHeader10});
             this.ViewOrderList.HideSelection = false;
-            this.ViewOrderList.Location = new System.Drawing.Point(366, 128);
+            this.ViewOrderList.Location = new System.Drawing.Point(349, 128);
             this.ViewOrderList.Name = "ViewOrderList";
-            this.ViewOrderList.Size = new System.Drawing.Size(171, 226);
+            this.ViewOrderList.Size = new System.Drawing.Size(200, 226);
             this.ViewOrderList.TabIndex = 1;
             this.ViewOrderList.UseCompatibleStateImageBehavior = false;
             this.ViewOrderList.View = System.Windows.Forms.View.Details;
@@ -789,7 +789,7 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "Item";
-            this.columnHeader9.Width = 100;
+            this.columnHeader9.Width = 135;
             // 
             // columnHeader10
             // 
@@ -1091,10 +1091,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(978, 595);
+            this.Controls.Add(this.ViewOrderPanel);
             this.Controls.Add(this.PizzaCreationPanel);
             this.Controls.Add(this.OrderCreationPanel);
             this.Controls.Add(this.OrderMainPanel);
-            this.Controls.Add(this.ViewOrderPanel);
             this.Controls.Add(this.BeveragesOrderPanel);
             this.Controls.Add(this.SidesPanel);
             this.Controls.Add(this.Back);

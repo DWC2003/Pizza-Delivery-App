@@ -478,6 +478,10 @@ namespace Pizza_Delivery_App
                             parts[0] = newOrder.items[i].itemType + " XL";
                             break;
                     }
+                    if (!newOrder.items[i].getCheese())
+                    {
+                        parts[0] += " NO CHEESE";
+                    }
                 }
                 else
                 {
@@ -619,6 +623,10 @@ namespace Pizza_Delivery_App
                         case 4:
                             parts[0] = newOrder.items[i].itemType + " XL";
                             break;
+                    }
+                    if (!newOrder.items[i].getCheese())
+                    {
+                        parts[0] += " NO CHEESE";
                     }
                 }
                 else

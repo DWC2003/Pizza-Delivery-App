@@ -33,6 +33,12 @@ namespace Pizza_Delivery_App
         {
 
         }
+        
+        override
+        public bool getCheese()
+        {
+            return false;
+        }
 
         override
         public int getSize()
