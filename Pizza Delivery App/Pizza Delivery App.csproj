@@ -152,6 +152,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="User.cs" />
     <Compile Include="Pizza.cs" />
     <Compile Include="Extras.cs" />
     <Compile Include="MenuItem.cs" />

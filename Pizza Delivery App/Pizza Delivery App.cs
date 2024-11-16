@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,18 +13,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Pizza_Delivery_App
 {
     public partial class Form1 : Form
     {
+        // List of users
+        List<User> users = new List<User>();
         // Menu Logic Variables
         public int menuPos = 0;
         public int newPos = 0;
         public int pizzaPos = 0;
         int orderToppingNum = 0;
-        // Order and Pizza Construction Variables
+        bool payFlag = false;
+        bool orderedFlag = false;
+        bool trackFlag = false;
+        int orderTimer = 500;
+        // Order and Pizza and User Construction Variables
         Order newOrder = new Order();
+
+        User currentUser = new User("", "", "", "");
         Pizza newPizza;
         // Menus
         List<MenuItem> sidesMenu = new List<MenuItem>();
@@ -37,12 +47,26 @@ namespace Pizza_Delivery_App
         public Form1()
         {
             InitializeComponent();
+            // Sample user information
+            users.Add(new User("sampleemail@gmail.com", "examplePass!", "John", "Doe"));
+            users[0].addFav(new Order());
+            users[0].favs[0].addItem(new Extras("Fries", 3.99, "Side"));
+            users[0].favs[0].addItem(new Extras("Breadsticks", 3.99, "Side"));
+            users[0].addFav(new Order());
+            users[0].favs[1].addItem(new Extras("Cheese Sticks", 2.99, "Side"));
+
+
+            users.Add(new User("sampleemail2@gmail.com", "examplePass2!", "Jane", "Doe"));
+
 
             // Populates Sides Menu
             sidesMenu.Add(new Extras("Fries", 3.99, "Side"));
+            sidesMenu.Add(new Extras("Breadsticks", 3.99, "Side"));
+            sidesMenu.Add(new Extras("Cheese Sticks", 3.99, "Side"));
             sidesMenu.Add(new Extras("Wings(5)", 3.99, "Side"));
             sidesMenu.Add(new Extras("Wings(10)", 5.99, "Side"));
             sidesMenu.Add(new Extras("Pasta", 3.99, "Side"));
+            sidesMenu.Add(new Extras("Salad", 3.99, "Side"));
 
             for (int i = 0; i < sidesMenu.Count(); i++)
             {
@@ -56,9 +80,12 @@ namespace Pizza_Delivery_App
             }
 
             // Populates Desserts Menu
-            dessertsMenu.Add(new Extras("Brownies", 3.99, "Dessert"));
-            dessertsMenu.Add(new Extras("Ice Cream", 3.99, "Dessert"));
-            dessertsMenu.Add(new Extras("Lava Cake", 3.99, "Dessert"));
+            dessertsMenu.Add(new Extras("Brownies", 4.99, "Dessert"));
+            dessertsMenu.Add(new Extras("Cookies(5)", 3.99, "Dessert"));
+            dessertsMenu.Add(new Extras("Ice Cream", 2.99, "Dessert"));
+            dessertsMenu.Add(new Extras("Cinnamon Twists", 3.99, "Dessert"));
+            dessertsMenu.Add(new Extras("Cheesecake Bites", 3.99, "Dessert"));
+
 
             for (int i = 0; i < dessertsMenu.Count(); i++)
             {
@@ -74,7 +101,10 @@ namespace Pizza_Delivery_App
             // Populates Beverages Menu
             bevMenu.Add(new Extras("Coke", 3.99, "Beverage"));
             bevMenu.Add(new Extras("Sprite", 3.99, "Beverage"));
-            bevMenu.Add(new Extras("Water", 3.99, "Beverage"));
+            bevMenu.Add(new Extras("Fanta", 3.99, "Beverage"));
+            bevMenu.Add(new Extras("Water Bottle", 1.99, "Beverage"));
+            bevMenu.Add(new Extras("Apple Juice", 2.99, "Beverage"));
+
 
             for (int i = 0; i < bevMenu.Count(); i++)
             {
@@ -89,6 +119,7 @@ namespace Pizza_Delivery_App
 
             // Populates Crust Menu
             crustMenu.Add(new Extras("Regular", 3.99, "Crust"));
+            crustMenu.Add(new Extras("Gluten Free", 4.99, "Crust"));
             crustMenu.Add(new Extras("Thin", 2.99, "Crust"));
             crustMenu.Add(new Extras("Deep Dish", 5.99, "Crust"));
 
@@ -122,7 +153,14 @@ namespace Pizza_Delivery_App
             // Populates Toppings Menu
             topMenu.Add(new Extras("Pepperoni", 1.99, "Topping"));
             topMenu.Add(new Extras("Sausage", 2.99, "Topping"));
-            topMenu.Add(new Extras("Mushrooms", 3.99, "Topping"));
+            topMenu.Add(new Extras("Chicken", 3.99, "Topping"));
+            topMenu.Add(new Extras("Steak", 3.99, "Topping"));
+            topMenu.Add(new Extras("Shrimp", 4.99, "Topping"));
+            topMenu.Add(new Extras("Spinach", 1.99, "Topping"));
+            topMenu.Add(new Extras("Feta", 2.99, "Topping"));
+            topMenu.Add(new Extras("Fresh Mozzarella", 3.99, "Topping"));
+            topMenu.Add(new Extras("Red Peppers", 2.99, "Topping"));
+            topMenu.Add(new Extras("Mushrooms", 2.99, "Topping"));
 
             for (int i = 0; i < topMenu.Count(); i++)
             {
@@ -160,7 +198,7 @@ namespace Pizza_Delivery_App
                     }
                 }
                 ListViewItem favOrder = new ListViewItem(items);
-                FavList.Items.Add(favOrder);
+
 
             }
             
@@ -190,6 +228,7 @@ namespace Pizza_Delivery_App
                         break;
                     case 2: 
                         LogInPanel.Hide();
+                        LogInErrorLabel.Text = "";
                         break;
                     case 3:
                         OrderMainPanel.Hide();
@@ -199,6 +238,7 @@ namespace Pizza_Delivery_App
                         break;
                     case 5:
                         OrderCreationPanel.Hide();
+                        OrderCreationErrorLabel.Text = "";
                         break;
                     case 6:
                         SidesPanel.Hide();
@@ -216,6 +256,16 @@ namespace Pizza_Delivery_App
                         ViewOrderList.Items.Clear();
                         ViewOrderTotalLabel.Text = ("Total: $0.00");
                         RemoveItemsLabel.Text = string.Empty;
+                        ViewOrderErrorLabel.Text = "";
+                        break;
+                    case 10:
+                        PayPanel.Hide();
+                        break;
+                    case 11:
+                        OrderTrackingPanel.Hide();
+                        break;
+                    case 12:
+                        SignUpPanel.Hide();
                         break;
 
                 }
@@ -233,6 +283,7 @@ namespace Pizza_Delivery_App
                         break;
                     case 3:
                         OrderMainPanel.Show();
+                        WelcomeLabel.Text = "Welcome, " + currentUser.firstName + ".\nBegin Your Order!";
                         break;
                     case 4:
                         FavoritesPanel.Show();
@@ -252,11 +303,79 @@ namespace Pizza_Delivery_App
                     case 9:
                         ViewOrderPanel.Show();
                         break;
+                    case 10:
+                        PayPanel.Show();
+                        TotalLabelPay.Text = ("Total: $" + newOrder.getTotal());
+                        break;
+                    case 11:
+                        OrderTrackingPanel.Show();
+                        break;
+                    case 12:
+                        SignUpPanel.Show();
+                        break;
                 }
             }
 
             menuPos = newPos;
             
+            if (DeliveryCheckBox.Checked)
+            {
+                AddressTextBox.Show();
+                StateTextBox.Show();
+                ZipTextBox.Show();
+            }
+            else
+            {
+                AddressTextBox.Hide();
+                StateTextBox.Hide();
+                ZipTextBox.Hide();
+            }
+
+            foreach (User user in users)
+            {
+                if (user.outgoingOrder)
+                {
+                    if (user.orderTimer > 0)
+                    {
+                        user.orderTimer--;
+
+                    }
+                }
+            }
+            if (currentUser.outgoingOrder)
+            {
+                OrderProgressBar.Value = 100 - ((int)(currentUser.orderTimer / 100)) * 25;
+            }
+            switch (currentUser.orderTimer / 100 + 1)
+            {
+                case 4:
+                    OrderStatusLabel.Text = "Order Status: Cooking";
+                    break;
+                case 3:
+                    OrderStatusLabel.Text = "Order Status: Packing";
+                    break;
+                case 2:
+                    if (DeliveryCheckBox.Checked)
+                    {
+                        OrderStatusLabel.Text = "Order Status: Delivering";
+                    }
+                    else
+                    {
+                        OrderStatusLabel.Text = "Order Status: Quality Assurance";
+                    }
+                    break;
+                case 1:
+                    if (DeliveryCheckBox.Checked)
+                    {
+                        OrderStatusLabel.Text = "Order Status: Delivered";
+                    }
+                    else
+                    {
+                        OrderStatusLabel.Text = "Order Status: Ready For Pickup";
+                    }
+                    break;
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -281,7 +400,14 @@ namespace Pizza_Delivery_App
                     newPos = 0;
                     break;
                 case 3:
-                    newPos = 2;
+                    var logout = MessageBox.Show(this, "Are you sure you want to log out?",
+                        "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (logout == DialogResult.Yes)
+                    {
+                        newPos = 2;
+                        newOrder = new Order();
+                    }
                     break;
                 case 4:
                     newPos = 3;
@@ -342,7 +468,40 @@ namespace Pizza_Delivery_App
                     newPos = 5;
                     break;
                 case 9:
+                    if (payFlag)
+                    {
+                        newPos = 10;
+                        payFlag = false;
+                    }
+                    else if (trackFlag)
+                    {
+                        newPos = 11;
+                        RemoveItemButton.Show();
+                        NewFavButton.Show();
+                        ViewOrderList.CheckBoxes = true;
+                        trackFlag = false;
+                    }
+                    else
+                    {
+                        newPos = 5;
+                    }
+                    break;
+                case 10:
                     newPos = 5;
+                    break;
+                case 11:
+                    var logout2 = MessageBox.Show(this, "Are you sure you want to log out?",
+                        "Confirm",
+                        MessageBoxButtons.YesNo);
+                    if (logout2 == DialogResult.Yes)
+                    {
+                        newPos = 2;
+                        newOrder = new Order();
+                    }
+                    break;
+                    break;
+                case 12:
+                    newPos = 0;
                     break;
             }
 
@@ -355,7 +514,55 @@ namespace Pizza_Delivery_App
 
         private void LogInConfirmButton_Click(object sender, EventArgs e)
         {
-            newPos = 3;
+            bool emailVerified = false;
+            bool passVerified = false;
+            if (LogInEmailField.Text.Equals("") || LogInPassField.Text.Equals(""))
+            {
+                LogInErrorLabel.Text = "Email and Password fields cannot be empty.";
+            }
+            else
+            {
+                foreach(User user in users)
+                {
+                    if (LogInEmailField.Text.Equals(user.email))
+                    {
+                        emailVerified = true;
+                    }
+                    if (LogInPassField.Text.Equals(user.password))
+                    {
+                        passVerified = true;
+                    }
+                    if (emailVerified && passVerified)
+                    {
+                        currentUser = user;
+                        FavListView1.Items.Clear();
+                        FavListView2.Items.Clear();
+                        FavListView3.Items.Clear();
+                        FavTotalLabel1.Text = "Total: ";
+                        FavTotalLabel2.Text = "Total: ";
+                        FavTotalLabel3.Text = "Total: ";
+
+                        if (currentUser.outgoingOrder)
+                        {
+                            newPos = 11;
+                        }
+                        else
+                        {
+                            newPos = 3;
+
+                        }
+
+                        break;
+                    }
+                }
+            
+                if (!emailVerified && !passVerified)
+                {
+                    LogInErrorLabel.Text = "               Invalid email or password.";
+                }
+            }
+
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -366,6 +573,101 @@ namespace Pizza_Delivery_App
         private void FavoritesButton_Click(object sender, EventArgs e)
         {
             newPos = 4;
+            FavListView1.Items.Clear();
+            FavListView2.Items.Clear();
+            FavListView3.Items.Clear();
+
+            for (int m = 0; m < currentUser.favs.Length; m++)
+            {
+                Order favorite = currentUser.favs[m];
+                if (favorite == null)
+                {
+                    continue;
+                }
+                for (int i = 0; i < favorite.items.Count(); i++)
+                {
+                    String[] parts = new string[2];
+                    if (favorite.items[i] is Pizza)
+                    {
+                        switch (favorite.items[i].getSize())
+                        {
+                            case 1:
+                                parts[0] = favorite.items[i].itemType + " S";
+                                break;
+                            case 2:
+                                parts[0] = favorite.items[i].itemType + " M";
+                                break;
+                            case 3:
+                                parts[0] = favorite.items[i].itemType + " L";
+                                break;
+                            case 4:
+                                parts[0] = favorite.items[i].itemType + " XL";
+                                break;
+                        }
+                        if (!favorite.items[i].getCheese())
+                        {
+                            parts[0] += " NO CHEESE";
+                        }
+                    }
+                    else
+                    {
+                        parts[0] = favorite.items[i].itemType;
+                    }
+                    parts[1] = favorite.items[i].cost + "";
+                    ListViewItem item = new ListViewItem(parts);
+                    switch (m)
+                    {
+                        case 0:
+                            FavListView1.Items.Add(item);
+                            break;
+                        case 1:
+                            FavListView2.Items.Add(item);
+                            break;
+                        case 2:
+                            FavListView3.Items.Add(item);
+                            break;
+                    }
+
+
+                    if (favorite.items[i] is Pizza)
+                    {
+                        for (int j = 0; j < favorite.items[i].getToppings().Count; j++)
+                        {
+                            orderToppingNum++;
+                            String[] pizzaParts = new string[2];
+                            pizzaParts[0] = " ^" + favorite.items[i].getToppings()[j].itemType;
+                            pizzaParts[1] = favorite.items[i].getToppings()[j].cost + "";
+                            ListViewItem topping = new ListViewItem(pizzaParts);
+                            switch (m)
+                            {
+                                case 0:
+                                    FavListView1.Items.Add(topping);
+                                    break;
+                                case 1:
+                                    FavListView2.Items.Add(topping);
+                                    break;
+                                case 2:
+                                    FavListView3.Items.Add(topping);
+                                    break;
+                            }
+                        }
+                    }
+                }
+                switch (m)
+                {
+                    case 0:
+                        FavTotalLabel1.Text = ("Total: $" + favorite.getTotal());
+                        break;
+                    case 1:
+                        FavTotalLabel2.Text = ("Total: $" + favorite.getTotal());
+                        break;
+                    case 2:
+                        FavTotalLabel3.Text = ("Total: $" + favorite.getTotal());
+                        break;
+                }
+                
+            }
+
         }
 
         // The below three methods do absolutely nothing but I can't figure out how to get rid of them without everything breaking so :/
@@ -448,7 +750,7 @@ namespace Pizza_Delivery_App
                     }
                 }
             }
-            
+
             SidesAddedLabel.Text = numAdded + " items added to order.";
         }
 
@@ -834,6 +1136,316 @@ namespace Pizza_Delivery_App
             newPos = 5;
             PizzaErrorLabel.Text = "";
             PizzaLabel.Text = "Create a Pizza! (Step 1/4)";
+        }
+
+        private void ImDoneButton_Click(object sender, EventArgs e)
+        {
+            if (newOrder.items.Count == 0)
+            {
+                OrderCreationErrorLabel.Text = "Order must contain at least one item to proceed to payment.";
+            }
+            else
+            {
+                newPos = 10;
+                
+            }
+        }
+
+        private void ViewOrderButton2_Click(object sender, EventArgs e)
+        {
+            payFlag = true;
+            newPos = 9;
+            for (int i = 0; i < newOrder.items.Count(); i++)
+            {
+                String[] parts = new string[2];
+                if (newOrder.items[i] is Pizza)
+                {
+                    switch (newOrder.items[i].getSize())
+                    {
+                        case 1:
+                            parts[0] = newOrder.items[i].itemType + " S";
+                            break;
+                        case 2:
+                            parts[0] = newOrder.items[i].itemType + " M";
+                            break;
+                        case 3:
+                            parts[0] = newOrder.items[i].itemType + " L";
+                            break;
+                        case 4:
+                            parts[0] = newOrder.items[i].itemType + " XL";
+                            break;
+                    }
+                    if (!newOrder.items[i].getCheese())
+                    {
+                        parts[0] += " NO CHEESE";
+                    }
+                }
+                else
+                {
+                    parts[0] = newOrder.items[i].itemType;
+                }
+                parts[1] = newOrder.items[i].cost + "";
+                ListViewItem item = new ListViewItem(parts);
+                ViewOrderList.Items.Add(item);
+
+                if (newOrder.items[i] is Pizza)
+                {
+                    for (int j = 0; j < newOrder.items[i].getToppings().Count; j++)
+                    {
+                        orderToppingNum++;
+                        String[] pizzaParts = new string[2];
+                        pizzaParts[0] = " ^" + newOrder.items[i].getToppings()[j].itemType;
+                        pizzaParts[1] = newOrder.items[i].getToppings()[j].cost + "";
+                        ListViewItem topping = new ListViewItem(pizzaParts);
+                        ViewOrderList.Items.Add(topping);
+                    }
+                }
+            }
+            ViewOrderTotalLabel.Text = ("Total: $" + newOrder.getTotal());
+        }
+
+        private void PickupCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PickupCheckBox.Checked)
+            {
+                DeliveryCheckBox.Checked = false;
+            }
+        }
+
+        private void DeliveryCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DeliveryCheckBox.Checked)
+            {
+                PickupCheckBox.Checked = false;
+            }
+        }
+
+        private void ConfirmPaymentButton_Click(object sender, EventArgs e)
+        {
+            var confirmPay = MessageBox.Show(this, "Are you sure you want to place this order?",
+                "Confirm",
+                MessageBoxButtons.YesNo);
+            if (confirmPay == DialogResult.Yes)
+            {
+                newPos = 11;
+                orderedFlag = true;
+                currentUser.outgoingOrder = true;
+                trackFlag = true;
+                payFlag = false;
+                orderTimer = 500;
+                currentUser.currentOrder = newOrder;
+                OrderProgressBar.Value = 0;
+                OrderStatusLabel.Text = "Order Status: Prepping";
+            }
+        }
+
+        private void signUp_Click(object sender, EventArgs e)
+        {
+            
+            newPos = 12;
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            bool hasspecial = false;
+            bool hasUpper = false;
+            String[] specialChars = new string[] { "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "/", "|", "[", "]", "{", "}", ";", ":", "?", ".", ",", ">", "<" };
+            for (int i = 0; i < specialChars.Count(); i++)
+            {
+                if (SignUpPassField.Text.Contains(specialChars[i])){
+                    hasspecial = true;
+                }
+            }
+            for (int i = 0; i < SignUpPassField.Text.Length; i++)
+            {
+                if (Char.IsUpper((Char)SignUpPassField.Text[i]))
+                {
+                    hasUpper = true;
+                }
+            }
+
+            if (SignUpEmailField.Text.Equals("") || SignUpPassField.Text.Equals("") || SignUpFirstNameField.Text.Equals("") || SignUpLastNameField.Text.Equals(""))
+            {
+                SignUpErrorLabel.Text = "                                                   User information fields cannot be empty.";
+            }
+            else
+            {
+                if (hasUpper && hasspecial && SignUpPassField.Text.Length >= 8)
+                {
+                    users.Add(new User(SignUpEmailField.Text, SignUpPassField.Text, SignUpFirstNameField.Text, SignUpLastNameField.Text));
+                    SignUpInfoLabel.Text = "User account created. You may now log in with specified information.";
+                }
+                else
+                {
+                    SignUpErrorLabel.Text = "Invalid password. Must be at least 8 characters long and contain a special character and an uppercase character.";
+                }
+            }
+
+            
+        }
+
+        private void FavCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FavCheckBox1.Checked)
+            {
+                FavCheckBox2.Checked = false;
+                FavCheckBox3.Checked = false;
+            }
+
+        }
+
+        private void FavCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FavCheckBox2.Checked)
+            {
+                FavCheckBox1.Checked = false;
+                FavCheckBox3.Checked = false;
+            }
+        }
+
+        private void FavCheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FavCheckBox3.Checked)
+            {
+                FavCheckBox1.Checked = false;
+                FavCheckBox2.Checked = false;
+            }
+        }
+
+        private void ReorderButton_Click(object sender, EventArgs e)
+        {
+            int decision = -1;
+            if (FavCheckBox1.Checked)
+            {
+                decision = 1;
+            }
+            else if (FavCheckBox2.Checked) {
+                decision = 2;
+            }
+            else if (FavCheckBox3.Checked)
+            {
+                decision = 3;
+            }
+            switch (decision)
+            {
+                case -1:
+                    FavErrorLabel.Text = "    Must select a favorite to reorder.";
+                    break;
+                case 1:
+                    if (currentUser.favs[0] == null)
+                    {
+                        FavErrorLabel.Text = "        Order cannot be empty.";
+                        break;
+                    }
+                    newOrder = currentUser.favs[0];
+                    newPos = 10;
+                    payFlag = true;
+                    break;
+                case 2:
+                    if (currentUser.favs[1] == null)
+                    {
+                        FavErrorLabel.Text = "        Order cannot be empty.";
+                        break;
+                    }
+                    newOrder = currentUser.favs[1];
+                    newPos = 10;
+                    payFlag = true;
+                    break;
+                case 3:
+                    if (currentUser.favs[2] == null)
+                    {
+                        FavErrorLabel.Text = "        Order cannot be empty.";
+                        break;
+                    }
+                    newOrder = currentUser.favs[2];
+                    newPos = 10;
+                    payFlag = true;
+                    break;
+            }
+        }
+
+        private void NewFavButton_Click(object sender, EventArgs e)
+        {
+            if (newOrder.items.Count() > 0)
+            {
+                currentUser.addFav(newOrder);
+                RemoveItemsLabel.Text = "Order added to favorites.";
+            }
+            else
+            {
+                ViewOrderErrorLabel.Text = "Cannot favorite an empty order.";
+            }
+        }
+
+        private void ViewOrderButton3_Click(object sender, EventArgs e)
+        {
+            trackFlag = true;
+            RemoveItemButton.Hide();
+            NewFavButton.Hide();
+            ViewOrderList.CheckBoxes = false;
+
+            newPos = 9;
+            for (int i = 0; i < currentUser.currentOrder.items.Count(); i++)
+            {
+                String[] parts = new string[2];
+                if (currentUser.currentOrder.items[i] is Pizza)
+                {
+                    switch (currentUser.currentOrder.items[i].getSize())
+                    {
+                        case 1:
+                            parts[0] = currentUser.currentOrder.items[i].itemType + " S";
+                            break;
+                        case 2:
+                            parts[0] = currentUser.currentOrder.items[i].itemType + " M";
+                            break;
+                        case 3:
+                            parts[0] = currentUser.currentOrder.items[i].itemType + " L";
+                            break;
+                        case 4:
+                            parts[0] = currentUser.currentOrder.items[i].itemType + " XL";
+                            break;
+                    }
+                    if (!currentUser.currentOrder.items[i].getCheese())
+                    {
+                        parts[0] += " NO CHEESE";
+                    }
+                }
+                else
+                {
+                    parts[0] = currentUser.currentOrder.items[i].itemType;
+                }
+                parts[1] = currentUser.currentOrder.items[i].cost + "";
+                ListViewItem item = new ListViewItem(parts);
+                ViewOrderList.Items.Add(item);
+
+                if (currentUser.currentOrder.items[i] is Pizza)
+                {
+                    for (int j = 0; j < currentUser.currentOrder.items[i].getToppings().Count; j++)
+                    {
+                        orderToppingNum++;
+                        String[] pizzaParts = new string[2];
+                        pizzaParts[0] = " ^" + currentUser.currentOrder.items[i].getToppings()[j].itemType;
+                        pizzaParts[1] = currentUser.currentOrder.items[i].getToppings()[j].cost + "";
+                        ListViewItem topping = new ListViewItem(pizzaParts);
+                        ViewOrderList.Items.Add(topping);
+                    }
+                }
+            }
+            ViewOrderTotalLabel.Text = ("Total: $" + currentUser.currentOrder.getTotal());
+        }
+
+        private void CancelOrderButton_Click(object sender, EventArgs e)
+        {
+            var confirmCancel = MessageBox.Show(this, "Are you sure you want to cancel?",
+                "Confirm",
+                MessageBoxButtons.YesNo);
+
+            if (confirmCancel == DialogResult.Yes)
+            {
+                currentUser.outgoingOrder = false;
+                currentUser.orderTimer = 500;
+                newPos = 5;
+            }
         }
     }
 }
